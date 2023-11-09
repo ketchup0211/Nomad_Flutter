@@ -6,9 +6,15 @@ void main() {
   runApp(const App());
 }
 
-class App extends StatelessWidget {
+class App extends StatefulWidget {
   const App({super.key});
 
+  @override
+  State<App> createState() => _AppState();
+}
+
+class _AppState extends State<App> {
+  int counter = 0;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -121,27 +127,21 @@ class App extends StatelessWidget {
                   code: "EUR",
                   amount: "6 428",
                   icon: Icons.euro_rounded,
-                  isInverted: false,
+                  order: 0,
                 ),
-                Transform.translate(
-                  offset: const Offset(0, -20),
-                  child: const CurrencyCard(
-                    name: "BitCoin",
-                    code: "BTC",
-                    amount: "9 785",
-                    icon: Icons.currency_bitcoin_rounded,
-                    isInverted: true,
-                  ),
+                const CurrencyCard(
+                  name: "BitCoin",
+                  code: "BTC",
+                  amount: "9 785",
+                  icon: Icons.currency_bitcoin_rounded,
+                  order: 1,
                 ),
-                Transform.translate(
-                  offset: const Offset(0, -40),
-                  child: const CurrencyCard(
-                    name: "Dollar",
-                    code: "USD",
-                    amount: "428",
-                    icon: Icons.attach_money_outlined,
-                    isInverted: false,
-                  ),
+                const CurrencyCard(
+                  name: "Dollar",
+                  code: "USD",
+                  amount: "428",
+                  icon: Icons.attach_money_outlined,
+                  order: 2,
                 ),
               ],
             ),
